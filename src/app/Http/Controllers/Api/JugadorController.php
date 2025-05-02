@@ -25,7 +25,7 @@ class JugadorController extends Controller
     {
         $items = Jugador::find($id);
         if (!$items) {
-            return response()->json(['message' => 'Jugador no encontrado'], 404);
+            return response()->json(['message' => 'Jugador no encontrado  '], 404);
         }
         return response()->json($items);
     }
@@ -47,6 +47,6 @@ class JugadorController extends Controller
             return response()->json(['message' => 'Jugador no encontrado'], 404);
         }
         $items->delete();
-        return response()->json(['message' => 'Jugador eliminado'], 204);
+        return response()->json(['message' => 'Jugador eliminado'], 200);
     }
 }

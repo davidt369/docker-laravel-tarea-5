@@ -14,9 +14,4 @@ class Jugador extends Model
     protected $table = 'jugadores';
     protected $primaryKey = 'id_jugador';
     protected $fillable = ['nombre', 'puesto', 'pierna'];
-
-    // public function equipo(): BelongsTo
-    // {
-    //     return $this->belongsTo(Equipo::class, 'id_equipo', 'id_equipo');
-    // }
 }

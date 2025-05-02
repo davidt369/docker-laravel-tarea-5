@@ -26,9 +26,20 @@
                     <select class="form-select" id="puesto" name="puesto" required>
                         <option value="">Seleccione un puesto</option>
                         <option value="Portero">Portero</option>
-                        <option value="Defensa">Defensa</option>
-                        <option value="Mediocampista">Mediocampista</option>
-                        <option value="Delantero">Delantero</option>
+                        <option value="Defensa central">Defensa central</option>
+                        <option value="Lateral izquierdo">Lateral izquierdo</option>
+                        <option value="Lateral derecho">Lateral derecho</option>
+                        <option value="Carrilero izquierdo">Carrilero izquierdo</option>
+                        <option value="Carrilero derecho">Carrilero derecho</option>
+                        <option value="Mediocentro defensivo">Mediocentro defensivo</option>
+                        <option value="Mediocentro ofensivo">Mediocentro ofensivo</option>
+                        <option value="Interior izquierdo">Interior izquierdo</option>
+                        <option value="Interior derecho">Interior derecho</option>
+                        <option value="Extremo izquierdo">Extremo izquierdo</option>
+                        <option value="Extremo derecho">Extremo derecho</option>
+                        <option value="Delantero centro">Delantero centro</option>
+                        <option value="Segundo delantero">Segundo delantero</option>
+                        <option value="Media punta">Media punta</option>
                     </select>
                 </div>
                 <div class="mb-3">
@@ -122,9 +133,20 @@
                     render: function(data, type, row) {
                         const badgeClass = {
                             'Portero': 'bg-info',
-                            'Defensa': 'bg-success',
-                            'Mediocampista': 'bg-warning',
-                            'Delantero': 'bg-danger'
+                            'Defensa central': 'bg-success',
+                            'Lateral izquierdo': 'bg-success',
+                            'Lateral derecho': 'bg-success',
+                            'Carrilero izquierdo': 'bg-success',
+                            'Carrilero derecho': 'bg-success',
+                            'Mediocentro defensivo': 'bg-warning',
+                            'Mediocentro ofensivo': 'bg-warning',
+                            'Interior izquierdo': 'bg-warning',
+                            'Interior derecho': 'bg-warning',
+                            'Extremo izquierdo': 'bg-danger',
+                            'Extremo derecho': 'bg-danger',
+                            'Delantero centro': 'bg-danger',
+                            'Segundo delantero': 'bg-danger',
+                            'Media punta': 'bg-warning'
                         }[data] || 'bg-secondary';
 
                         return `<span class="badge ${badgeClass}">${data}</span>`;
@@ -154,7 +176,7 @@
         });
     });
 
-    // Función para guardar un jugador (crear o actualizar)
+
     function guardarJugador() {
         const jugadorId = $("#jugador-id").val();
         const data = {
@@ -163,7 +185,6 @@
             pierna: $("#pierna").val()
         };
 
-        // Determina si es crear o actualizar
         const url = jugadorId ? `/api/jugadores/${jugadorId}` : '/api/jugadores';
         const method = jugadorId ? 'PUT' : 'POST';
         const successMsg = jugadorId ? 'Jugador actualizado correctamente' : 'Jugador creado correctamente';
@@ -183,7 +204,6 @@
         });
     }
 
-    // Función para editar un jugador
     function editarJugador(id) {
         $.ajax({
             url: `/api/jugadores/${id}`,

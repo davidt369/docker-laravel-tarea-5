@@ -59,7 +59,7 @@
     let dataTable;
 
     $(document).ready(function() {
-        // Inicializar DataTable
+
         dataTable = $('#equipos-table').DataTable({
             ajax: {
                 url: '/api/equipos',
@@ -155,7 +155,7 @@
         });
     }
 
-    // Función para editar un equipo
+
     function editarEquipo(id) {
         $.ajax({
             url: `/api/equipos/${id}`,
